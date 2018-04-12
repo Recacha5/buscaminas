@@ -13,9 +13,8 @@ public class Buscaminas {
 
     public static void main(String[] args) {
         
-        Tablero t = new Tablero(5, 5);
-        t.insertarMinas(2);
-        t.imprimirPrueba();
+        Juego j = new Juego();
+        j.jugar();
         
     }
     

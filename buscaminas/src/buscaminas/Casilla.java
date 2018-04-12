@@ -19,6 +19,10 @@ public class Casilla {
 
     public Casilla() {
         this.mina = false;
+        this.blanco = true;
+        this.bandera = false;
+        this.visible = false;
+        this.numero = 0;
     }
 
     /**
