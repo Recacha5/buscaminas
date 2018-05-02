@@ -28,7 +28,10 @@ public class Tablero {
             }
         }
     }
-
+    /**
+     * 
+     * @param minas recibe el numero de minas
+     */
     public void insertarMinas(int minas) {
 
         Random r = new Random();
@@ -43,6 +46,9 @@ public class Tablero {
         }
     }
 
+    /**
+     *  imprime por pantalla el tablero
+     */
     public void imprimirPrueba() {
         System.out.print(" ");
         for (int i = 0; i < getTabla().length; i++) {
@@ -71,7 +77,12 @@ public class Tablero {
         System.out.println("");
     }
 
-    
+    /**
+     * 
+     * @param fila recibe la fila
+     * @param columna recibe la columna
+     * @return devuelve el numero de minas que hay alrededor de esa casilla
+     */
     public int calculaNumMinasCasilla(int fila, int columna) {
         
         int aux = 0;
@@ -87,12 +98,21 @@ public class Tablero {
         return aux;
     }
 
+    /**
+     * 
+     * @param fila recibe la fila
+     * @param columna recibe la columna
+     * @return devuelve la posición de la casilla
+     */
     public Casilla getCasilla(int fila, int columna) {
 
         return tabla[fila][columna];
         
     }
 
+    /**
+     *  calcula el resto de casillas que no son mina
+     */
     public void calcularTablero() {
         
         for (int i = 0; i < tabla.length; i++) {

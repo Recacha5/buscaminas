@@ -22,6 +22,9 @@ public class Juego {
         
     }
 
+    /**
+     * Configuración inicial
+     */
     private void configurarJuego() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Vamos a definir el tablero del juego");
@@ -33,12 +36,18 @@ public class Juego {
         numMinas = sc.nextInt();
     }
 
+    /**
+     * crea el tablero
+     */
     public void iniciarJuego() {
 
         tablero = new Tablero(numFilas, numColumnas);
 
     }
 
+    /**
+     * comenzar el juego
+     */
     public void jugar() {
         Scanner sc = new Scanner(System.in);
         int fila, columna;
@@ -58,6 +67,9 @@ public class Juego {
         
     }
 
+    /**
+     * muestra el tablero
+     */
     private void mostrarTablero() {
 
         System.out.print(" ");
@@ -91,6 +103,11 @@ public class Juego {
         System.out.println("");
     }
 
+    /**
+     * 
+     * @return devuelve la seleccion (1, 2, 3)
+     * 
+     */
     private int elegirOperacion() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Elige qué quieres hacer:");
@@ -100,6 +117,12 @@ public class Juego {
         return sc.nextInt();
     }
 
+    /**
+     * 
+     * @param fila recibe la fila
+     * @param columna recibe la columna
+     * @return devuelve true si las coordenadas introducidas son correctas, devuelve false si no lo son.
+     */
     private boolean coordenadasCorrectas(int fila, int columna) {
 
         if (fila >= 0 && fila < numFilas && columna >= 0 & columna < numColumnas) {
@@ -109,6 +132,9 @@ public class Juego {
         }
     }
 
+    /**
+     * termina el juego porque has pisado una mina
+     */
     private void acabarJuegoMina() {
 
         System.out.println("Juego finalizado, has pisado una mina");
@@ -116,6 +142,11 @@ public class Juego {
 
     }
 
+    /**
+     * @param fila recibe la fila
+     * @param columna recibe la columna
+     * @return devuelve true si la casilla no es mina, devuelve false si has pisado una mina
+     */
     private boolean descubrirCasilla(int fila, int columna) {
         coordenadasCorrectas(fila, columna);
         if (!tablero.getTabla()[fila][columna].isMina()) {
@@ -127,7 +158,12 @@ public class Juego {
             return false;
         }
     }
-    
+    /**
+     * 
+     * @param fila recibe la fila
+     * @param columna recibe la columna
+     * descubre la casilla seleccionada
+     */
     private void descubrirBlanco(int fila, int columna){
         
         for (int i = fila-1; i <= fila+1; i++) {
@@ -138,7 +174,10 @@ public class Juego {
             }
         }
     }
-    
+    /**
+     * 
+     * @return devuelve true si no has pisado ninguna mina y has descubierto todas las casillas, devuelve falso si aun sigue la partida
+     */
     private boolean partidaGanada(){
         int aux = 0;
         for (int i = 0; i < numFilas; i++) {
